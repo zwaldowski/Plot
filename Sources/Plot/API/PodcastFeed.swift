@@ -62,4 +62,4 @@ public protocol PodcastCategoryContext: PodcastNameableContext {}
 /// Context shared among all elements that define podcast content.
 public protocol PodcastContentContext: RSSContentContext {}
 /// Context shared among all elements that define podcast names.
-public protocol PodcastNameableContext {}
+public protocol PodcastNameableContext: TextContext {}

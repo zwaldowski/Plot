@@ -83,7 +83,7 @@ public extension HTML {
     /// The context within an HTML document's `<head>` element.
     enum HeadContext: HTMLContext, HTMLScriptableContext {}
     /// The context within an HTML document's `<body>` element.
-    class BodyContext: HTMLStylableContext, HTMLScriptableContext, HTMLImageContainerContext {}
+    class BodyContext: TextContext, HTMLStylableContext, HTMLScriptableContext, HTMLImageContainerContext {}
     /// The context within an HTML `<a>` element.
     final class AnchorContext: BodyContext, HTMLLinkableContext {}
     /// The context within an HTML `<audio>` element.
@@ -131,7 +131,7 @@ public extension HTML {
     /// The context within a picture `<source>` element.
     enum PictureSourceContext {}
     /// The context within an HTML `<script>` element.
-    enum ScriptContext: HTMLSourceContext, HTMLIntegrityContext {}
+    enum ScriptContext: TextContext, HTMLSourceContext, HTMLIntegrityContext {}
     /// The context within an HTML `<select>` element.
     enum SelectContext: HTMLOptionListContext {}
     /// The context within an HTML `<table>` element.

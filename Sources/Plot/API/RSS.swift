@@ -50,7 +50,7 @@ public extension RSS {
     /// The context within an RSS feed's `<item>` elements.
     enum ItemContext: RSSItemContext {}
     /// The context within an RSS item's `<guid>` element.
-    enum GUIDContext {}
+    enum GUIDContext: TextContext {}
 }
 
 /// Protocol adopted by all contexts that are at the root level of
@@ -67,7 +67,7 @@ public protocol RSSChannelContext {
     associatedtype ItemContext: RSSItemContext
 }
 /// Protocol adopted by all contexts that define RSS-based content.
-public protocol RSSContentContext {}
+public protocol RSSContentContext: TextContext {}
 /// Protocol adopted by all contexts that define an RSS item.
 public protocol RSSItemContext: RSSContentContext {}
 

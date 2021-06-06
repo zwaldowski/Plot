@@ -218,11 +218,21 @@ extension Node: Component {
     public var body: Component { self }
 }
 
-extension Node: ExpressibleByStringInterpolation {
+extension Node: ExpressibleByStringLiteral where Context: TextContext {
     public init(stringLiteral value: String) {
         self = .text(value)
     }
 }
+
+extension Node: ExpressibleByUnicodeScalarLiteral where Context: TextContext {
+    public typealias UnicodeScalarLiteralType = String
+}
+
+extension Node: ExpressibleByExtendedGraphemeClusterLiteral where Context: TextContext {
+    public typealias ExtendedGraphemeClusterLiteralType = String
+}
+
+extension Node: ExpressibleByStringInterpolation where Context: TextContext {}
 
 extension Node: AnyNode {
     func render(into renderer: inout Renderer) {
