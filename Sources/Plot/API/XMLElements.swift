@@ -13,4 +13,12 @@ public extension Element where Context: XMLRootContext {
                 nodes: attributes.map(\.node),
                 paddingCharacter: "?")
     }
+
+    /// Add an XML `doctype` declaration to the document.
+    /// - parameter type: The type of document to declare.
+    static func doctype(_ type: String) -> Element {
+        Element(name: "!DOCTYPE", closingMode: .neverClosed, nodes: [
+            Node<Context>.attribute(named: type)
+        ])
+    }
 }

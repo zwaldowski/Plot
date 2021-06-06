@@ -43,4 +43,12 @@ final class XMLTests: XCTestCase {
 
         assertEqualXMLContent(xml, "<parent><a/><b/></parent>")
     }
+
+    func testDoctype() {
+        let document = Document<XML>.custom(
+            .xml(.version(1)),
+            .doctype("test"),
+            .selfClosed(named: "test", attributes: []))
+        XCTAssertEqual(document.render(), #"<?xml version="1.0"?><!DOCTYPE test><test/>"#)
+    }
 }
